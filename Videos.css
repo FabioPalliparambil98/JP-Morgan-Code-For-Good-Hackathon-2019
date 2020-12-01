@@ -1,0 +1,40 @@
+.header{
+  width: 100%;
+  height: 100px;
+}
+.logo {
+  float: right;
+  width: 200px;
+}
+.container {
+  margin: 80px;
+}
+.container h1 {
+  float: left;
+}
+.inner h1{
+  color: #99004d;
+  font-family: sans-serif;
+}
+.video-item{
+  display: flex;  
+  padding-bottom: 80px;
+}
+.thumbnail{
+  flex: 2;
+  float: left;
+}
+.caption{
+  flex: 1;
+  float: right;
+  padding-left: 50px;
+}
+.caption h3{
+  font-size: 20px;
+  text-align: left;
+  color: #99004d;
+  font-family: sans-serif;
+}
+.caption p{
+  text-align: left;
+}
