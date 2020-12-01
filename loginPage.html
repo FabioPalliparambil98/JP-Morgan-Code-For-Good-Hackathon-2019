@@ -1,0 +1,53 @@
+
+
+
+<html>
+<head>
+<title>Login Form Design</title>
+<link rel="stylesheet" type="text/css" href="mystyle.css">
+<body>
+
+
+  <div class="loginbox">
+      <img src="https://pbs.twimg.com/profile_images/1061906789300609024/v1lmHZph_400x400.jpg" class="avatar">
+          <h1>Users Login <a href="/login_admin"></a></h1>
+          <form action="homePage.php"method="POST">
+            <p>Username</p>
+            <input type="text" name="username" placeholder="Enter Username">
+            <p>Password</p>
+            <input type="password" name="password" placeholder="Enter Password">
+            <input type="submit" name ='login'  >
+            <a href="/resetpassword">Reset Password</a><br>
+          </form>
+    </div>
+
+<?php
+    if(isset($_POST['login'])){
+        echo 'in conection';
+        $username = $_POST['username'];
+        $password = $_POST['password'];
+        $connection = mysqli_connect('db.bucomputing.uk','s5107880', 'ih9NrhoJzATKkVkER4frAvuybsj7YeRh' , 's5107880');
+        if (!$connection){
+            die("database connection failed");
+        }
+        $query = "SELECT * FROM Login_tbl where user_name = '$username' and pass_word = '$password'";
+        $result = mysqli_query($connection,$query);
+        if (!$result){
+            die('Query failed' .mysqli_error($connection));
+        }
+        $row = mysqli_fetch_assoc($result);
+        if($row['user_name'] ==$username && $row['pass_word'] == $password){
+            echo "https://www.google.com";
+            header("location: homePage.php");
+        }else{
+            echo $username;
+            echo $password;
+            echo "data is not valid";
+        }
+    }
+?>
+
+
+</body>
+</head>
+</html>
